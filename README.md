@@ -23,6 +23,8 @@ add DB_URL to .env file, and add the url from elephantSQL
 
 Make a `db` folder with `index.js` to set up the connection
 
+## Connect API to db (deployed on Render)
+
 
 
 ## TODOs
