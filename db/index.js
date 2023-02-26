@@ -1,6 +1,6 @@
 // pgp object that knows how to connect to the db, we are invoking the function as soon as we require the code
 // pgp promise object
-const pgp = requre('pg-promise')();
+const pgp = require('pg-promise')();
 
 // allows us to read values out of the dotenv file and treat them as environment variables.
 require('dotenv').config();
