@@ -26,6 +26,12 @@ Make a `db` folder with `index.js` to set up the connection
 ## Connect API to db (deployed on Render)
 
 
+#### 2-26-23 Notes:
+Found some documentation on the configuration object:
+[https://github.com/vitaly-t/pg-promise/wiki/Connection-Syntax#configuration-object](https://github.com/vitaly-t/pg-promise/wiki/Connection-Syntax#configuration-object)
+
+---
+
 
 ## TODOs
 1. Create a server with a healthcheck route
