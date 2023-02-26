@@ -1,3 +1,30 @@
+## Deployed backend link on Render
+2-22-23 this is the deployed backend - this repo is a copy of Mike's repo
+[https://student-app-be-nw-copy.onrender.com](https://student-app-be-nw-copy.onrender.com)
+
+
+## ElephantSQL
+Create a tiny turtle database for this project
+- Connect to Postico
+
+## connecting our database
+create and switch to a new branch
+```
+git checkout -b connect-api-to-db
+```
+
+### adding pg promise to our database
+install pg promise as a dependency
+```
+npm install pg-promise
+```
+
+add DB_URL to .env file, and add the url from elephantSQL
+
+Make a `db` folder with `index.js` to set up the connection
+
+
+
 ## TODOs
 1. Create a server with a healthcheck route
     - X install Express
