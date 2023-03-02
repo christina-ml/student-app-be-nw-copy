@@ -1,8 +1,8 @@
 ## 3-1-23 TODOs
 X 1. Set up a database schema and create students and grades tables WITH INDEXES
 X 2. Seed the students and grades tables with data
-3. Update the query layer to fetch data from the database (not json)
-4. Update the controller layer to use the queries correctly (if needed)
+X 3. Update the query layer to fetch data from the database (not json)
+X 4. Update the controller layer to use the queries correctly (if needed)
 5. Clean up 
 - delete old json files
 - remove /tests endpoint
@@ -27,6 +27,22 @@ CREATE INDEX grades_student_id ON grades(student_id);
 ```
 - this will create an index on the student id column in grades
 - doing this can increase the speed and efficency of your database
+
+
+### studentsQueriesV2.js
+```
+const getStudentByIdV2 = async (id) => {
+  const students = await db.oneOrNone('SELECT * FROM students WHERE id = $1', [id]);
+  ...
+```
+the ID should be a number (like 13, 17), but it could be anything. That means we can't trust that information.
+You DON'T want to do string interpolation such as:
+`SELECT * FROM students WHERE id = ${id}` `<-- BAD`
+- this can expose yourself to a security vulnerability called a "SQL injection"
+
+Using this syntax, PG Promise will handle this interpolation for us:
+db.oneOrNone - for whatever this value is, this sanatizes it. So if a user wanted to do something malicious with our id, `db.oneOrNone` will clean it up so nothing dangerous can happen to our database. 
+`$1` is replaced with our `[id]` value
 
 
 ## Deployed backend link on Render
