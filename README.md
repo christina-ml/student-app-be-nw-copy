@@ -1,3 +1,34 @@
+## 3-1-23 TODOs
+X 1. Set up a database schema and create students and grades tables WITH INDEXES
+2. Seed the students and grades tables with data
+3. Update the query layer to fetch data from the database (not json)
+4. Update the controller layer to use the queries correctly (if needed)
+5. Clean up 
+- delete old json files
+- remove /tests endpoint
+
+
+Notes:
+What order do you drop the tables in the schema? Drop the grades table before the students table, because grades has a foreign key to students.
+
+Drop the grades table first, because there's nothing that the grades own. There's no dependencies on grades, so you can delete grades safely.
+
+ON DELETE CASCADE - if a student is deleted, it will also delete the student's grades
+
+#### indexes
+Databases have indexes, in order to load faster.
+Looking for something by ID is easier
+the id SERIAL PRIMARY KEY is done automatically
+- something we'll be doing often is looking for a particular student's grades
+- postgres automatically indexes in the grades table
+we want to select * from grades where student_id = $1
+```
+CREATE INDEX grades_student_id ON grades(student_id);
+```
+- this will create an index on the student id column in grades
+- doing this can increase the speed and efficency of your database
+
+
 ## Deployed backend link on Render
 2-22-23 this is the deployed backend - this repo is a copy of Mike's repo
 [https://student-app-be-nw-copy.onrender.com](https://student-app-be-nw-copy.onrender.com)
