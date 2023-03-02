@@ -1,6 +1,6 @@
 ## 3-1-23 TODOs
 X 1. Set up a database schema and create students and grades tables WITH INDEXES
-2. Seed the students and grades tables with data
+X 2. Seed the students and grades tables with data
 3. Update the query layer to fetch data from the database (not json)
 4. Update the controller layer to use the queries correctly (if needed)
 5. Clean up 
