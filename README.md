@@ -4,8 +4,8 @@ X 2. Seed the students and grades tables with data
 X 3. Update the query layer to fetch data from the database (not json)
 X 4. Update the controller layer to use the queries correctly (if needed)
 5. Clean up 
-- delete old json files
-- remove /tests endpoint
+X delete old json files
+X remove /tests endpoint
 
 
 Notes:
