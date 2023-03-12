@@ -1,3 +1,56 @@
+# 3-12-23 New Feature
+Create another table with instructors/teachers that have many students. So that each student can be part of a classroom
+
+- Add instructors table and connect using a foreign key to students table
+- Add seed data for instructors
+- update seed data for students
+- check if it worked
+
+get all instructors
+Example: `http://localhost:8888/v2/instructors`
+```
+{
+  "data": [
+    {
+      "id": 1,
+      "instructor_name": "John Doe"
+    },
+    {
+      "id": 2,
+      "instructor_name": "Jane Doe"
+    }
+  ]
+}
+```
+
+get all instructors with students
+Example: `http://localhost:8888/v2/instructors?include=students`
+```
+{
+  "data": [
+    {
+      "id": 1,
+      "instructor_name": "John Doe",
+      "students": [
+        {
+          "id": 17,
+          "first_name": "Orelia",
+          "last_name": "Keary",
+          "city": "Sarulla",
+          "company": "Blogpad",
+          "email": "okearyg@g.co",
+          "pic": "https://storage.googleapis.com/hatchways-app.appspot.com/assessments/data/frontend/images/enimpariaturoptio.jpg",
+          "skill": "General Surgery",
+          "instructor_id": 1
+        },
+        ...
+      ]
+    }
+  ]
+}
+```
+
+
 ## 3-1-23 TODOs
 X 1. Set up a database schema and create students and grades tables WITH INDEXES
 X 2. Seed the students and grades tables with data
