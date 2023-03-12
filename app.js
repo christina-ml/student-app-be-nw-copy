@@ -5,12 +5,11 @@
 // Import express library
 const express = require('express');
 const cors = require('cors');
-// connect to database
-const db = require('./db');
 
 // Import OUR stuff (our files, our components)
 const studentsController = require('./controllers/studentsController');
 const studentsControllerV2 = require('./controllers/v2/studentsControllerV2');
+const instructorsController = require('./controllers/v2/instructorsController');
 
 // Init express application
 const app = express();
@@ -23,6 +22,7 @@ app.use(cors());
 // Controllers
 app.use('/students', studentsController);
 app.use('/v2/students', studentsControllerV2);
+app.use('/v2/instructors', instructorsController);
 
 // Define our routes
 
@@ -30,16 +30,5 @@ app.use('/v2/students', studentsControllerV2);
 app.get('/', (request, response) => {
   response.status(200).json({ data: 'Service is running' });
 });
-
-// Tests route for tests table in db on elephantSQL
-app.get('/tests', async (request, response) => {
-  try {
-    const tests = await db.any('SELECT * FROM tests');
-
-    response.status(200).json({ data: tests });
-  } catch (err) {
-    response.status(500).json({ error: err.message });
-  }
-})
 
 module.exports = app;
